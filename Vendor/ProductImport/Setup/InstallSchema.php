@@ -14,7 +14,6 @@ class InstallSchema implements InstallSchemaInterface
         $installer = $setup;
         $installer->startSetup();
 
-        // Create table for storing import results
         if (!$installer->tableExists('product_import_files')) {
             $table = $installer->getConnection()->newTable(
                 $installer->getTable('product_import_files')
@@ -88,7 +87,15 @@ class InstallSchema implements InstallSchemaInterface
                 null,
                 ['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
                 'Updated At'
+            )
+            ->addColumn(
+                'cronjob_status',
+                Table::TYPE_TEXT,
+                null,
+                ['nullable' => false, 'default' => 'not started'],
+                'Cron Job Status'
             );
+
 
             $installer->getConnection()->createTable($table);
         }

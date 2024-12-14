@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\ProductImport\Model\ResourceModel\Import;
+namespace Vendor\ProductImport\Model\ResourceModel\ProductImport;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use Vendor\ProductImport\Model\ProductImport;

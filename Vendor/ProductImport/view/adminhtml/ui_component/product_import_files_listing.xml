@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">product_import_files_listing.product_import_files_listing_data_source</item>
+            <item name="deps" xsi:type="string">product_import_files_listing.product_import_files_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">spinner_columns</item>
+    </argument>
+    <dataSource name="nameOfDataSource">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">product_import_files_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                </item>
+            </argument>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">No Action</item>
+                        <item name="label" xsi:type="string" translate="true">No Action</item>
+                        <item name="url" xsi:type="url" path="product_import_files/"/>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+<columns name="spinner_columns">
+    <column name="id">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">textRange</item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">ID</item>
+            </item>
+        </argument>
+    </column>
+    <column name="file_name">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">text</item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">File Name</item>
+            </item>
+        </argument>
+    </column>
+    <column name="type">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">text</item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">Type</item>
+            </item>
+        </argument>
+    </column>
+    <column name="upload_date">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">dateRange</item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">Upload Date</item>
+            </item>
+        </argument>
+    </column>
+    <column name="validation_status">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">text</item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">Validation Status</item>
+            </item>
+        </argument>
+    </column>
+    <column name="error_summary">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">text</item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">Error Summary</item>
+            </item>
+        </argument>
+    </column>
+    <column name="processed_lines">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">textRange</item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">Processed Lines</item>
+            </item>
+        </argument>
+    </column>
+    <column name="error_lines">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">textRange</item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">Error Lines</item>
+            </item>
+        </argument>
+    </column>
+    <column name="cronjob_status">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">select</item>
+                <item name="options" xsi:type="array">
+                    <item name="not_started" xsi:type="array">
+                        <item name="value" xsi:type="string">not started</item>
+                        <item name="label" xsi:type="string" translate="true">Not Started</item>
+                    </item>
+                    <item name="success" xsi:type="array">
+                        <item name="value" xsi:type="string">success</item>
+                        <item name="label" xsi:type="string" translate="true">Success</item>
+                    </item>
+                    <item name="failed" xsi:type="array">
+                        <item name="value" xsi:type="string">failed</item>
+                        <item name="label" xsi:type="string" translate="true">Failed</item>
+                    </item>
+                </item>
+                <item name="sorting" xsi:type="string">asc</item>
+                <item name="label" xsi:type="string" translate="true">Cron Job Status</item>
+            </item>
+        </argument>
+    </column>
+</columns>
+
+
+</listing>

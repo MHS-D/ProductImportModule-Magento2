@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Di/etc/di.xsd">
+
     <type name="Vendor\ProductImport\Model\ProductImportFactory">
         <arguments>
             <argument name="data" xsi:type="array"/>
@@ -8,4 +9,18 @@
 
         </arguments>
     </type>
+
+     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="product_import_files_listing_data_source" xsi:type="string">Vendor\ProductImport\Model\ResourceModel\ProductImport\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Vendor\ProductImport\Model\ResourceModel\ProductImport\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">product_import_files</argument>
+            <argument name="resourceModel" xsi:type="string">Vendor\ProductImport\Model\ResourceModel\ProductImport</argument>
+        </arguments>
+    </virtualType>
 </config>
