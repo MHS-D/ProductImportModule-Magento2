@@ -1,0 +1,10 @@
+<form action="<?= $block->getUrl('productimport/import/upload') ?>" method="post" enctype="multipart/form-data">
+    <label for="products_csv">Upload Products CSV:</label>
+    <input type="file" name="products_csv" id="products_csv" />
+    <br><br>
+    <label for="categories_csv">Upload Categories CSV:</label>
+    <input type="file" name="categories_csv" id="categories_csv" />
+    <br><br>
+    <input name="form_key" type="hidden" value="<?php /* @escapeNotVerified */ echo $block->getFormKey(); ?>" />
+    <button type="submit">Upload</button>
+</form>

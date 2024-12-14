@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/menu.xsd">
+    <menu>
+        <add id="Vendor_ProductImport::menu"
+             title="Import Menu"
+             module="Vendor_ProductImport"
+             sortOrder="30"
+             resource="Magento_Backend::content" />
+
+        <add id="Vendor_ProductImport::menu_item"
+             title="Import Product/category"
+             sortOrder="1"
+            module="Vendor_ProductImport"
+             parent="Vendor_ProductImport::menu"
+            action="productimport/import/index"
+             resource="Magento_Backend::menu_item" />
+
+    <add id="Vendor_ProductImport::table"
+     title="import statistics"
+     sortOrder="2"
+     module="Vendor_ProductImport"
+     parent="Vendor_ProductImport::menu"
+     action="productimport/uploads/index"
+     resource="Magento_Backend::new_menu_item" />
+    </menu>
+</config>
